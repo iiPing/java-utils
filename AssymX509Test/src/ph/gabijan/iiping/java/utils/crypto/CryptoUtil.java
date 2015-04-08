@@ -34,12 +34,13 @@ import java.security.spec.InvalidKeySpecException;
 import java.security.spec.KeySpec;
 import java.security.spec.PKCS8EncodedKeySpec;
 import java.security.spec.X509EncodedKeySpec;
-import java.util.Base64;
 
 import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
+
+import javax.xml.bind.DatatypeConverter;
 
 public class CryptoUtil implements ICryptoUtilAssymRSA {
 
@@ -60,8 +61,8 @@ public class CryptoUtil implements ICryptoUtilAssymRSA {
 		Cipher cipher = Cipher.getInstance(CIPHER);
 		cipher.init(Cipher.DECRYPT_MODE, pubKey);
 
-		byte[] encryptedBytesStr = Base64.getDecoder().decode(
-				encryptedBase64String.getBytes());
+		byte[] encryptedBytesStr = DatatypeConverter
+				.parseBase64Binary(encryptedBase64String);
 
 		return new String(cipher.doFinal(encryptedBytesStr));
 	}
@@ -81,8 +82,10 @@ public class CryptoUtil implements ICryptoUtilAssymRSA {
 		cipher.init(Cipher.ENCRYPT_MODE, privKey);
 
 		byte[] encryptedString = cipher.doFinal(rawString.getBytes());
+		
+		
 
-		return Base64.getEncoder().encodeToString(encryptedString);
+		return DatatypeConverter.printBase64Binary(encryptedString);
 	}
 
 	private static byte[] readFileToBytes(String filePath) throws IOException {
