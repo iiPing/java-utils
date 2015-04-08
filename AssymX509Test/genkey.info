@@ -1,0 +1,7 @@
+#1. convert kdb(cms) to .p12 using ikeyman
+#2. .pl12 cover into priv_key.pem
+openssl pkcs12 -in key.p12 -out priv_key.pem -nocerts -nodes
+#3. key.pem convert into pkcs8 DER file
+openssl pkcs8 -topk8 -inform PEM -outform DER -in priv_key.pem -nocrypt > priv_key.der
+#4. key.pem extract public file into DER
+openssl rsa -in priv_key.pem -pubout -outform DER -out pub_key.der
