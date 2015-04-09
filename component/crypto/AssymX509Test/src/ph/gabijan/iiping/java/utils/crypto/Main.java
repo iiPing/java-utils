@@ -26,23 +26,7 @@ package ph.gabijan.iiping.java.utils.crypto;
 public class Main {
 
 	public static void main(String... strings) throws Exception {
-		// System.out.println(encrypt("this is a string"));
-		// System.out
-		// .println(decrypt("Gd8aY3Wc3W49/roeXnNXKTalCyTeW1bBQH0DKyjT55z1EzS+2a8G9RV4QbqccJ6ECInQIDYRyZYMFg2q/XuZPhf6ia3aGiCiqlDda3kNRJ1uwnNEDAfVUJV2dR/bzpWRzFuPPKA33P5yQITbvqHdg14MgHdgjB8+vaVWLK1jBxZLblq0sWp9D/y5M1/3ac3KEBkrIDEfxKj0tEKiosLZ2XqmzyihUoqvk7NTRKeC/ObGALLIW634zRKRC+Il2Sivs9kDRsBQxajBGKeovMmgYqn2+XuVgPSgb5YyOX9xFh+fI/JDzntsmkK2O6tjONBWf9F33DfYIJxzFv7KHWjPIIvU/3H14laOqekTmwtdss0XftvZeFZrI7105UCgdQ0b8qOSYZMOatIwQ6bunGhz0Am47tweKy9FFUtLAFCHXrZKHeV7jN+4yIWv/h3Xmbqu+/xKzbJ2lK+UTjxCy/5J8JAKKK99OToNISBXOHSmZMEJWN5ErrVrT3mU2kcCM02A1UQBmBinm2835fp/JL2LUNAMRzQ9JJIqhlPcpnQ9JKHzjtVZT5DVvELtlJLiBgUVwYUZZO/nPuWfdCcTvLutMhPnET1GVrYjDzYI7KW/dA2O0oN5Xtpg7W4BO90aAIvMaCQXli4PUfw/WT4gKFGdKxT15BadUjKBlDKRy1RKo1c="));
-		//
-
-		ICryptoUtilAssymRSA cryptoUtil = new CryptoUtil();
-
-		cryptoUtil
-				.loadPrivateKey("D:/usr/src/local/code.github/java-utils/AssymX509Test/priv_key.der");
-		cryptoUtil
-				.loadPublicKey("D:/usr/src/local/code.github/java-utils/AssymX509Test/pub_key.der");
-
-		System.out.println(cryptoUtil.priEncStr("this is a test string"));
-		System.out
-				.println(cryptoUtil
-						.pubDecStr("mdRyPTs/ZO07n9TvmI6yEcSJtY+Few8pCpaLYpR0eTr9cJLK/f9ENT/MN3TQmJ6Pnbpdh3oB84x9lC1uToNcbhjcnAJPhsbb2TR3nCaXcvhzZn3jymW3+5UHe/3P+IdTZRA1zMW3rep/29mhzs33wRmkVUw8VTVMHJzcZxfJAUwHz8Y84lfSlY4ol+irK1ANzePqL4rRWkyzDqNxRoZ48yvB/5CA93MjhOxmRXV/7wOs8dcCNci40Gwx05o4a6OZeWlOv1SNLTyAjglmzP9/GfFS1gi7wpMRQt7kCEDeYgiP9YZrfBy6TtnynPKcK+MTgcAcGBytksG8OIKQIGxvJPYIhOQGWXERDaSPWI54HYr0wabYOXqI2c6sovF7PHkH2KC5A7VTJjLwYjy2ADLQOTXamX8lqUv9NhZA2OkxmfA7+kedZ1eLZWLdF12FAO5HgDQwpiQnYucB3tEoK4L2NRXY2lvgfU5SN1KmfoU3ACMrCuINy0nl/uGnCCyaNA6o/xjay60AGj7ijZFrCz4/VQnFuquM8vE3J61696xp2o992fHDjDfyjTINvZVKqmTb3SLgdPr4doX4JUxaAu500OtUrJYRcYbO6PGcIBAMjr6PrJIAUgQPCJl8WHXt35bLa294BhasK4TrBzOSjgqsXnZsA6ShQlYoyyJriTOqjNA="));
-
+		
 	}
 
 }

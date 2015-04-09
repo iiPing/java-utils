@@ -36,28 +36,96 @@ public interface ICryptoUtilAssymRSA {
 	String KEY_FACTORY_INSTANCE = "RSA";
 	String CIPHER = "RSA/ECB/PKCS1Padding";
 	
+	
+	/**
+	 * Loads your private Key
+	 * @param pathToDERFile
+	 * @throws IOException
+	 */
 	void loadPrivateKey(String pathToDERFile) throws IOException;
+	
+	/**
+	 * Loads your public Key
+	 * @param pathToDERFile
+	 * @throws IOException
+	 */
 	void loadPublicKey(String pathToDERFile) throws IOException;
 	
 
-	
+	/**
+	 * Converts a raw string into an encrypted encoded BASE64 using public key
+	 * @param rawString
+	 * @return
+	 * @throws IOException
+	 * @throws NoSuchAlgorithmException
+	 * @throws IOException
+	 * @throws InvalidKeySpecException
+	 * @throws NoSuchPaddingException
+	 * @throws InvalidKeyException
+	 * @throws IllegalBlockSizeException
+	 * @throws BadPaddingException
+	 */
 	String pubEncStr(String rawString)
 			throws IOException, NoSuchAlgorithmException, IOException,
 			InvalidKeySpecException, NoSuchPaddingException,
 			InvalidKeyException, IllegalBlockSizeException, BadPaddingException;
 	
+	/**
+	 * Converts an encoded BASE64 encrypted raw string using private key
+	 * 
+	 * @param encryptedBase64String
+	 * @return
+	 * @throws IOException
+	 * @throws NoSuchAlgorithmException
+	 * @throws IOException
+	 * @throws InvalidKeySpecException
+	 * @throws NoSuchPaddingException
+	 * @throws InvalidKeyException
+	 * @throws IllegalBlockSizeException
+	 * @throws BadPaddingException
+	 */
 	String priDecStr(String encryptedBase64String)
 			throws IOException, NoSuchAlgorithmException, IOException,
 			InvalidKeySpecException, NoSuchPaddingException,
 			InvalidKeyException, IllegalBlockSizeException, BadPaddingException;	
 	
 	
-
+	/**
+	 * WARNING: not a typical usage scenario, you have been warned! <br/>
+	 * Converts a raw string into an encrypted encoded BASE64 using a private key
+	 * 
+	 * @param rawString
+	 * @return
+	 * @throws NoSuchAlgorithmException
+	 * @throws IOException
+	 * @throws InvalidKeySpecException
+	 * @throws NoSuchPaddingException
+	 * @throws InvalidKeyException
+	 * @throws IllegalBlockSizeException
+	 * @throws BadPaddingException
+	 */
 	String priEncStr(String rawString)
 			throws NoSuchAlgorithmException, IOException,
 			InvalidKeySpecException, NoSuchPaddingException,
 			InvalidKeyException, IllegalBlockSizeException, BadPaddingException;
 
+	/**
+	 * WARNING: not a typical usage scenario, you have been warned! <br/>
+	 * Converts an encoded BASE64 encrypted into a raw string using public key
+	 * 
+	 * 
+	 * 
+	 * @param encryptedBase64String
+	 * @return
+	 * @throws IOException
+	 * @throws NoSuchAlgorithmException
+	 * @throws IOException
+	 * @throws InvalidKeySpecException
+	 * @throws NoSuchPaddingException
+	 * @throws InvalidKeyException
+	 * @throws IllegalBlockSizeException
+	 * @throws BadPaddingException
+	 */
 	String pubDecStr(String encryptedBase64String)
 			throws IOException, NoSuchAlgorithmException, IOException,
 			InvalidKeySpecException, NoSuchPaddingException,
