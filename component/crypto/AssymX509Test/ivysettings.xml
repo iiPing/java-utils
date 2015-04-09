@@ -1,0 +1,20 @@
+<ivysettings>
+    <settings defaultResolver="my-local-repo" />
+        
+        <resolvers>
+        <chain name="my-local-repo">
+
+            <filesystem name="junit">
+            	<ivy pattern="${dir.root.local-repo}/org.apache/[module]/ivy-[revision].xml" />
+                <artifact pattern="${dir.root.local-repo}/org.apache/[module]/[artifact].[ext]" />
+            </filesystem>
+
+            
+            <filesystem name="local">
+            	<ivy pattern="${dir.root.local-repo}/iiping/[module]/ivy-[revision].xml" />
+                <artifact pattern="${dir.root.local-repo}/iiping/[module]/[artifact].[ext]" />
+            </filesystem>
+             
+        </chain>
+    </resolvers>
+</ivysettings>
