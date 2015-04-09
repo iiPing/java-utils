@@ -122,20 +122,47 @@ public class CryptoUtil implements ICryptoUtilAssymRSA {
 	}
 
 	@Override
-	public String pubEncStr(String encryptedBase64String) throws IOException,
+	public String pubEncStr(String rawString) throws IOException,
 			NoSuchAlgorithmException, IOException, InvalidKeySpecException,
 			NoSuchPaddingException, InvalidKeyException,
 			IllegalBlockSizeException, BadPaddingException {
-		// TODO Auto-generated method stub
-		return null;
+		
+		
+		KeySpec keySpec = new X509EncodedKeySpec(pubKeyBytes);
+		KeyFactory keyFactory = KeyFactory.getInstance(KEY_FACTORY_INSTANCE);
+
+		RSAPublicKey pubKey = (RSAPublicKey) keyFactory.generatePublic(keySpec);
+
+		Cipher cipher = Cipher.getInstance(CIPHER);
+		cipher.init(Cipher.ENCRYPT_MODE, pubKey);
+		
+		
+		byte[] encryptedString = cipher.doFinal(rawString.getBytes());
+		return DatatypeConverter.printBase64Binary(encryptedString);		
+		
+
 	}
 
 	@Override
 	public String priDecStr(String encryptedBase64String) throws IOException,
 			NoSuchAlgorithmException, IOException, InvalidKeySpecException,
 			NoSuchPaddingException, InvalidKeyException,
-			IllegalBlockSizeException, BadPaddingException {
-		// TODO Auto-generated method stub
-		return null;
+			IllegalBlockSizeException, BadPaddingException 
+	{
+		
+		KeySpec keySpec = new PKCS8EncodedKeySpec(priKeyBytes);
+		KeyFactory keyFactory = KeyFactory.getInstance(KEY_FACTORY_INSTANCE);
+
+		RSAPrivateKey privKey = (RSAPrivateKey) keyFactory
+				.generatePrivate(keySpec);
+
+		Cipher cipher = Cipher.getInstance(CIPHER);
+		cipher.init(Cipher.DECRYPT_MODE, privKey);
+
+		byte[] encryptedBytesStr = DatatypeConverter
+				.parseBase64Binary(encryptedBase64String);
+
+		return new String(cipher.doFinal(encryptedBytesStr));
+		
 	}
 }
