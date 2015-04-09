@@ -47,6 +47,7 @@
 				<path refid="AssymX509Test.libraries.classpath" />
 				<pathelement path="${dir.root.crypto.bin}" />
 				<pathelement path="${dir.root.crypto.test-bin}" />
+				<pathelement path="${dir.root.crypto.Assymx509}"/>
 			</classpath>
 			<formatter type="xml" />
 			<batchtest fork="yes" todir="${dir.root.crypto.Assymx509.test-reports}">
