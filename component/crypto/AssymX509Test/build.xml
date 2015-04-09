@@ -43,6 +43,7 @@
 	<target name="test" depends="compile" description="Run unit tests">
 		<mkdir dir="${dir.root.crypto.Assymx509.test-reports}" />
 		<junit printsummary="yes" haltonfailure="yes">
+			<jvmarg value="-Dcom.ibm.crypto.provider.DoRSATypeChecking=false"/>
 			<classpath>
 				<path refid="AssymX509Test.libraries.classpath" />
 				<pathelement path="${dir.root.crypto.bin}" />
