@@ -1,0 +1,12 @@
+<ivysettings>
+    <settings defaultResolver="my-local-repo" />
+    
+        <resolvers>
+        <chain name="my-local-repo">
+            <filesystem name="local">
+            	<ivy pattern="${dir.root.local-repo}/org.hamcrest/[module]/ivy-[revision].xml" />
+                <artifact pattern="${dir.root.local-repo}/org.hamcrest/[module]/[artifact].[ext]" />
+            </filesystem>
+        </chain>
+    </resolvers>
+</ivysettings>

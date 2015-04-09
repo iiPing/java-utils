@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<project xmlns:ivy="antlib:org.apache.ivy.ant" name="hamcrest" default="publish" basedir=".">
+
+	<property file="build.properties" />
+
+	<!-- setup reference to the Ivy Ant tasks library -->
+	<path id="ivy.lib.path">
+		<fileset dir="${dir.ivy}" casesensitive="yes" includes="ivy-2.4.0.jar" />
+		<pathelement location="${ivy.jar.file}" />
+	</path>
+	<taskdef resource="org/apache/ivy/ant/antlib.xml" uri="antlib:org.apache.ivy.ant" classpathref="ivy.lib.path" />
+
+	<target name="publish">
+		<ivy:settings id="iextlib.hamcrest.ivy" file="${dir.root.lib.hamcrest}/ivysettings.xml" />
+		<ivy:resolve file="${dir.root.lib.hamcrest}/ivy.xml" settingsRef="iextlib.hamcrest.ivy" />
+		<ivy:publish resolver="my-local-repo" overwrite="true">
+			<artifacts pattern="${dir.root.lib.hamcrest}/[artifact].[ext]" />
+		</ivy:publish>
+	</target>
+</project>

@@ -12,16 +12,16 @@ public class Test {
 		ICryptoUtilAssymRSA cryptoUtil = new CryptoUtil();
 
 		cryptoUtil
-				.loadPrivateKey("D:/usr/src/local/code.github/java-utils/AssymX509Test/priv_key.der");
+				.loadPrivateKey("D:/usr/src/local/code.github/java-utils/component/crypto/AssymX509Test/priv_key.der");
 		cryptoUtil
-				.loadPublicKey("D:/usr/src/local/code.github/java-utils/AssymX509Test/pub_key.der");
-		
+				.loadPublicKey("D:/usr/src/local/code.github/java-utils/component/crypto/AssymX509Test/pub_key.der");
+
 		String testString = "this is a test string";
-		
+
 		String encStr = cryptoUtil.priEncStr(testString);
 		String decStr = cryptoUtil.pubDecStr(encStr);
-		
-		assertTrue("expected result on enc->dec for pri->pub", encStr.equals(decStr));
+		assertEquals("expected result on enc->dec for pri->pub", testString,
+				decStr);
 
 	}
 
