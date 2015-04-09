@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="AssymX509Test" default="dist" basedir=".">
+	<description>
+		simple example build file
+	</description>
+	<!-- set global properties for this build -->
+	<property name="src" location="src" />
+	<property name="build" location="bin" />
+	<property name="dist" location="dist" />
+		
+
+
+	<target name="init">
+		<!-- Create the time stamp -->
+		<tstamp />
+	</target>
+
+	<target name="compile" depends="init" description="compile the source ">
+		<mkdir dir="${build}" />
+		<!-- Compile the java code from ${src} into ${build} -->
+		<javac srcdir="${src}" destdir="${build}" />
+	</target>
+
+	<target name="dist" depends="clean,compile" description="generate the distribution">
+		<mkdir dir="${dist}" />
+		<jar jarfile="${dist}/AssymX509Test-${DSTAMP}.jar" basedir="${build}" />
+	</target>
+
+	<target name="clean" description="clean up">
+		<!-- Delete the ${build} and ${dist} directory trees -->
+		<delete dir="${build}" />
+		<delete dir="${dist}" />
+	</target>
+</project>
